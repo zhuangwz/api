@@ -1,0 +1,1000 @@
+swagger: "2.0"
+info:
+  description: "This is a sample Get server. "
+  version: "1.0.0"
+  title: "SWAPI"
+host: "127.0.0.1"
+basePath: "/swapi100"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /people/:
+    get:
+      tags:
+      - "people page"
+      summary: "Get designated page people."
+      description: "Get the designated page's people."
+      operationId: "getDesignatedPagePeople"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: page
+        in: query
+        description: ID of page to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 87
+              next:
+                type: "string"
+              previous:
+                type: "string"
+                example: "null"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /people:
+    get:
+      tags:
+      - "first people page"
+      summary: "Get the first page people."
+      description: "Get the first page's people."
+      operationId: "getSomePeople"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 87
+              next:
+                type: "string"
+              previous:
+                type: "string"
+                example: "null"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Pet"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /people/{peopleId}:
+    get:
+      tags:
+      - "person Id"
+      summary: "Find person by ID"
+      description: "Returns a single person"
+      operationId: "getPersonById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: peopleId
+        in: path
+        description: ID of people to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Pet"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+      
+  /planets/:
+    get:
+      tags:
+      - "planets page"
+      summary: "Get designated page planets."
+      description: "Get the designated page's planets."
+      operationId: "getDesignatedPagePlanets"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: page
+        in: query
+        description: ID of page to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 61
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Planet"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /planets:
+    get:
+      tags:
+      - "first planets page"
+      summary: "Get the first page planets."
+      description: "Get the first page's planets."
+      operationId: "getSomePlanets"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 61
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Planet"
+        404:
+          description: "Page not found"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /planets/{planetId}:
+    get:
+      tags:
+      - "planet Id"
+      summary: "Find planet by ID"
+      description: "Returns a single planet"
+      operationId: "getPlanetById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: planetId
+        in: path
+        description: ID of planet to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Planet"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /starships/:
+    get:
+      tags:
+      - "starships page"
+      summary: "Get designated page starships."
+      description: "Get the designated page's starships."
+      operationId: "getDesignatedPageStarships"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: page
+        in: query
+        description: ID of page to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 37
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Starship"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /starships:
+    get:
+      tags:
+      - "first starships page"
+      summary: "Get the first page starships."
+      description: "Get the first page's starships."
+      operationId: "getSomeStarships"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 37
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Starship"
+        404:
+          description: "Page not found"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /starships/{starshipId}:
+    get:
+      tags:
+      - "starship Id"
+      summary: "Find starship by ID"
+      description: "Returns a single starship"
+      operationId: "getStarshipById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: starshipId
+        in: path
+        description: ID of starship to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Starship"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /vehicles/:
+    get:
+      tags:
+      - "vehicles page"
+      summary: "Get designated page vehicles."
+      description: "Get the designated page's vehicles."
+      operationId: "getDesignatedPageVehicles"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: page
+        in: query
+        description: ID of page to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 39
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Vehicle"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /vehicles:
+    get:
+      tags:
+      - "first vehicles page"
+      summary: "Get the first page vehicles."
+      description: "Get the first page's vehicles."
+      operationId: "getSomeVehicles"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 39
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Vehicle"
+        404:
+          description: "Page not found"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /vehicles/{vehicleId}:
+    get:
+      tags:
+      - "vehicle Id"
+      summary: "Find vehicle by ID"
+      description: "Returns a single vehicle"
+      operationId: "getVehicleById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: vehicleId
+        in: path
+        description: ID of vehicle to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Vehicle"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /films/:
+    get:
+      tags:
+      - "films page"
+      summary: "Get designated page films."
+      description: "Get the designated page's films."
+      operationId: "getDesignatedPageFilms"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: page
+        in: query
+        description: ID of page to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 7
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Film"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /films:
+    get:
+      tags:
+      - "first films page"
+      summary: "Get the first page films."
+      description: "Get the first page's films."
+      operationId: "getSomeFilms"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 7
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Film"
+        404:
+          description: "Page not found"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /films/{filmId}:
+    get:
+      tags:
+      - "film Id"
+      summary: "Find film by ID"
+      description: "Returns a single film"
+      operationId: "getFilmById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: filmId
+        in: path
+        description: ID of film to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Film"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /species/:
+    get:
+      tags:
+      - "species page"
+      summary: "Get designated page species."
+      description: "Get the designated page's species."
+      operationId: "getDesignatedPageSpecies"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: page
+        in: query
+        description: ID of page to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 37
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Species"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /species:
+    get:
+      tags:
+      - "first species page"
+      summary: "Get the first page species."
+      description: "Get the first page's species."
+      operationId: "getSomeSpecies"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              count:
+                type: "integer"
+                example: 37
+              next:
+                type: "string"
+              previous:
+                type: "string"
+              results:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Species"
+        404:
+          description: "Page not found"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+        
+  /species/{speciesId}:
+    get:
+      tags:
+      - "species Id"
+      summary: "Find species by ID"
+      description: "Returns a single species"
+      operationId: "getSpeciesById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: speciesId
+        in: path
+        description: ID of species to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Species"
+        404:
+          description: "Page not found"
+        405:
+          description: "Invalid input"
+
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+
+
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+    
+
+definitions:
+      
+  Pet:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "zhuangwz"
+      height:
+        type: "string"
+        example: "180"
+      mass:
+        type: "string"
+        example: "60"
+      hair_color:
+        type: "string"
+        example: "black"
+      skin_color:
+        type: "string"
+        example: "yellow"
+      eye_color:
+        type: "string"
+        example: "blue"
+      birth_year:
+        type: "string"
+        example: "19BBY"
+      gender: 
+        type: "string"
+        example: "male"
+      homeworld:
+        type: "string"
+        example: ""
+      films:
+        type: "array"
+        items:
+          type: "string"
+      species:
+        type: "array"
+        items:
+          type: "string"
+      vehicles:
+        type: "array"
+        items:
+          type: "string"
+      starships:
+        type: "array"
+        items:
+          type: "string"
+      created:
+        type: "string"
+        example: "2014-12-09T13:50:51.644000Z"
+      edited:
+        type: "string"
+        example: "2014-12-09T13:50:51.644000Z"
+      url:
+        type: "string"
+        example: ""
+      
+  Planet:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+      rotation_period:
+        type: "string"
+      orbital_period:
+        type: "string"
+      diameter:
+        type: "string"
+      climate:
+        type: "string"
+      gravity:
+        type: "string"
+      terrain:
+        type: "string"
+      surface_water: 
+        type: "string"
+      population:
+        type: "string"
+      residents:
+        type: "array"
+        items:
+          type: "string"
+      films:
+        type: "array"
+        items:
+          type: "string"
+      created:
+        type: "string"
+      edited:
+        type: "string"
+      url:
+        type: "string"
+        
+  Starship:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+      model:
+        type: "string"
+      manufacturer:
+        type: "string"
+      cost_in_credits:
+        type: "string"
+      length:
+        type: "string"
+      max_atmosphering_speed:
+        type: "string"
+      crew:
+        type: "string"
+      passengers: 
+        type: "string"
+      cargo_capacity:
+        type: "string"
+      consumables:
+        type: "string"
+      hyperdrive_rating:
+        type: "string"
+      MGLT:
+        type: "string"
+      starship_class:
+        type: "string"
+      pilots:
+        type: "array"
+        items:
+          type: "string"
+      films:
+        type: "array"
+        items:
+          type: "string"
+      created:
+        type: "string"
+      edited:
+        type: "string"
+      url:
+        type: "string"
+        
+  Vehicle:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+      model:
+        type: "string"
+      manufacturer:
+        type: "string"
+      cost_in_credits:
+        type: "string"
+      length:
+        type: "string"
+      max_atmosphering_speed:
+        type: "string"
+      crew:
+        type: "string"
+      passengers: 
+        type: "string"
+      cargo_capacity:
+        type: "string"
+      consumables:
+        type: "string"
+      vehicle_class:
+        type: "string"
+      pilots:
+        type: "array"
+        items:
+          type: "string"
+      films:
+        type: "array"
+        items:
+          type: "string"
+      created:
+        type: "string"
+      edited:
+        type: "string"
+      url:
+        type: "string"
+        
+  Film:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      title:
+        type: "string"
+      episode_id:
+        type: "integer"
+      opening_crawl:
+        type: "string"
+      director:
+        type: "string"
+      producer:
+        type: "string"
+      release_date:
+        type: "string"
+      characters:
+        type: "array"
+        items:
+          type: "string"
+      planets:
+        type: "array"
+        items:
+          type: "string"
+      starships:
+        type: "array"
+        items:
+          type: "string"
+      vehicles:
+        type: "array"
+        items:
+          type: "string"
+      species:
+        type: "array"
+        items:
+          type: "string"
+      created:
+        type: "string"
+      edited:
+        type: "string"
+      url:
+        type: "string"
+        
+  Species:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+      classification:
+        type: "integer"
+      designation:
+        type: "string"
+      average_height:
+        type: "string"
+      skin_colors:
+        type: "string"
+      hair_colors:
+        type: "string"
+      eye_colors:
+        type: "string"
+      average_lifespan:
+        type: "string"
+      homeworld:
+        type: "string"
+      language:
+        type: "string"
+      people:
+        type: "array"
+        items:
+          type: "string"
+      films:
+        type: "array"
+        items:
+          type: "string"
+      created:
+        type: "string"
+      edited:
+        type: "string"
+      url:
+        type: "string"
+  
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
