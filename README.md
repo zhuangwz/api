@@ -12,6 +12,7 @@ the api document of the project
 ### API文档设计
     我使用的是老师课上说的YAML语言来设计，使用的工具是SWAGGER Editor。
     YAML相比于JSON，更加灵活，且界面更加直观、通俗易懂。因此用YAML来完成此次API的文档设计更加合适。
+    YAML的API内容我按照“星际争战”中的API进行设计的，总共包含了People、StarShips、Planets、Vehicles等六大类。每个类中又同时支持单个ID查询和分页查询，能够按照ID或组号返回相应的内容。
     SWAGGER Editor能够自动识别文档设计中的格式错误，设计过程不易出错。此外，SWAGGER Editor还提供自动生成前端或者后端的测试代码，能够进行前端和后端的分离开发和检验，因此使用SWAGGER Editor工具来完成。
     
 ### GIT PAGE实现
